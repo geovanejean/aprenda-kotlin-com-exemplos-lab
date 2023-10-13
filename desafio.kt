@@ -1,4 +1,4 @@
-enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
+enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO}
 
 data class Usuario(val nome: String)
 
