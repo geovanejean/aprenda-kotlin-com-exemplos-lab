@@ -1,21 +1,40 @@
-// [Template no Kotlin Playground](https://pl.kotl.in/WcteahpyN)
+enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
 
-enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
+data class Usuario(val nome: String)
 
-class Usuario
+data class ConteudoEducacional(val nome: String, val duracao: Int = 120, val nivel: Nivel)
 
-data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
-
-data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
+data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>, val nivel: Nivel) {
 
     val inscritos = mutableListOf<Usuario>()
-    
-    fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+
+    fun matricular(vararg usuarios: Usuario) {
+        for (u in usuarios) {
+            inscritos.add(u)
+            println("Usuário ${u.nome} adicionado")
+        }
     }
 }
 
 fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+    val joao = Usuario("João")
+    val maria = Usuario("Maria")
+    val marcos = Usuario("Marcos")
+
+    val kotlin = ConteudoEducacional(nome = "Kotlin", nivel = Nivel.BASICO)
+    val java = ConteudoEducacional("Java", 240, Nivel.INTERMEDIARIO)
+    val android = ConteudoEducacional("Android", 300, Nivel.AVANCADO)
+
+    val conteudos = listOf<ConteudoEducacional>(kotlin, java, android)
+
+    val formacaoKotlin = Formacao("Formação Kotlin", conteudos, Nivel.INTERMEDIARIO)
+    formacaoKotlin.matricular(joao, maria, marcos)
+
+    println()
+    println("Título: ${formacaoKotlin.nome} (Nível: ${formacaoKotlin.nivel})")
+    println("Matriculados: ")
+    for (u in formacaoKotlin.inscritos) println("${u.nome} ")
+    println("Conteudos: ")
+    for (c in formacaoKotlin.conteudos) println("${c.nome} (${c.duracao} minutos, Nível: ${c.nivel})")
+
 }
