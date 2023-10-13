@@ -17,9 +17,9 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>, 
 }
 
 fun main() {
-    val joao = Usuario("João")
-    val maria = Usuario("Maria")
-    val marcos = Usuario("Marcos")
+    val joao = Usuario("Geovane")
+    val maria = Usuario("Thiago")
+    val marcos = Usuario("Jessica")
 
     val kotlin = ConteudoEducacional(nome = "Kotlin", nivel = Nivel.BASICO)
     val java = ConteudoEducacional("Java", 240, Nivel.INTERMEDIARIO)
