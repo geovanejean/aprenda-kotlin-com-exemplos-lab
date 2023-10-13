@@ -17,9 +17,9 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>, 
 }
 
 fun main() {
-    val joao = Usuario("Geovane")
-    val maria = Usuario("Thiago")
-    val marcos = Usuario("Jessica")
+    val Geo = Usuario("Geovane")
+    val Thiago = Usuario("Thiago")
+    val Jessica = Usuario("Jessica")
 
     val kotlin = ConteudoEducacional(nome = "Kotlin", nivel = Nivel.BASICO)
     val java = ConteudoEducacional("Java", 240, Nivel.INTERMEDIARIO)
@@ -28,7 +28,7 @@ fun main() {
     val conteudos = listOf<ConteudoEducacional>(kotlin, java, android)
 
     val formacaoKotlin = Formacao("Formação Kotlin", conteudos, Nivel.INTERMEDIARIO)
-    formacaoKotlin.matricular(joao, maria, marcos)
+    formacaoKotlin.matricular(Geo, Thiago, Jessica)
 
     println()
     println("Título: ${formacaoKotlin.nome} (Nível: ${formacaoKotlin.nivel})")
